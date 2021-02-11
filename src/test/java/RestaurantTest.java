@@ -64,4 +64,19 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void order_total_should_be_sum_of_prices_of_items_added(){
+
+    }
+    @Test
+    public void order_total_should_be_zero_if_no_item_names_are_given(){
+
+    }
+    @Test
+    public void order_total_should_throw_exception_if_item_is_not_found() throws itemNotFoundException{
+
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
