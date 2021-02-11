@@ -67,16 +67,20 @@ class RestaurantTest {
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
-    public void order_total_should_be_sum_of_prices_of_items_added(){
-
+    public void order_total_should_be_sum_of_prices_of_items_added() throws itemNotFoundException{
+        int total = restaurant.getOrderTotal("Sweet corn soup", "Vegetable lasagne");
+        int total2 = restaurant.getOrderTotal("Sweet corn soup");
+        assertEquals(388,total);
+        assertEquals(119,total2);
     }
     @Test
-    public void order_total_should_be_zero_if_no_item_names_are_given(){
-
+    public void order_total_should_be_zero_if_no_item_names_are_given() throws itemNotFoundException{
+        int total = restaurant.getOrderTotal();
+        assertEquals(0,total);
     }
     @Test
     public void order_total_should_throw_exception_if_item_is_not_found() throws itemNotFoundException{
-
+        assertThrows(itemNotFoundException.class,()->restaurant.getOrderTotal("non existent item"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

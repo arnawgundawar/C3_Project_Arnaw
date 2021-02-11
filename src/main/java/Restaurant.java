@@ -17,6 +17,19 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
+    public int getOrderTotal(String... items) throws itemNotFoundException{
+        if(items.length > 0){
+            int orderTotal = 0;
+            for (String itemName : items) {
+                Item item = findItemByName(itemName);
+                if(item == null)
+                    throw new itemNotFoundException(itemName);
+                orderTotal += item.getPrice();
+            }
+            return orderTotal;
+        }
+        return 0;
+    }
     public boolean isRestaurantOpen() {
         if(getCurrentTime().isAfter(openingTime) && getCurrentTime().isBefore(closingTime))
             return true;
